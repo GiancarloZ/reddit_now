@@ -1,6 +1,3 @@
-require "reddit_now/version"
-
-module RedditNow
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./reddit_now/version"
+require_relative './reddit_now/cli'
+require_relative './reddit_now/posts'
