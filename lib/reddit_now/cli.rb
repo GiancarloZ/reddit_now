@@ -8,9 +8,11 @@ class RedditNow::CLI
   
   def list_posts
     @posts = RedditNow::Posts.now
-    @posts.each do |posted, i| 
+    
+    @posts[0].each do |posted, i| 
       puts "#{posted.rank}. #{posted.upvote} Upvotes. #{posted.title} - submitted to #{posted.subreddit} by #{posted.user}"
     end
+    
   end
   
   def menu
@@ -19,14 +21,14 @@ class RedditNow::CLI
     
       puts "Type post number to open post, list to view all posts, exit to exit"
       input = gets.strip.downcase
-      case input
-      when "list"
+      
+      if input == "list"
         list_posts
-      when "exit"
+      elsif input == "exit"
         puts "See you next time!"
         break
-      #when input.to_i > 0
-        #system("open #{@newsletter.articles[input.to_i-1].url}") 
+      elsif input.to_i > 0
+        system("open #{@posts[0][input.to_i-1].url}") 
       else
         puts "Invalid Command!"
       end
