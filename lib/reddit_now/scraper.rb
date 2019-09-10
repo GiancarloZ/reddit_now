@@ -1,4 +1,0 @@
-class RedditNow::Scraper
-  
-  
-end
