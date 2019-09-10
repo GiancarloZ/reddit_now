@@ -8,6 +8,9 @@ class RedditNow::CLI
   
   def list_posts
     @posts = RedditNow::Posts.now
+    @posts.each do |posted, i| 
+      puts "#{posted.rank}. #{posted.upvote} Upvotes. #{posted.title} - submitted to #{posted.subreddit} by #{posted.user}"
+    end
   end
   
   def menu

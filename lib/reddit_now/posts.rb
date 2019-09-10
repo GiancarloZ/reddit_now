@@ -6,15 +6,15 @@ class RedditNow::Posts
   end
   
   def self.scraped
-    #puts "1. 28.5k General from black panther I shall see - by gallowboob" #"#{i}. #{title} by #{user}"
-    posts = [] 
+    frontpage = [] 
     
-    posts << self.scraped_frontpage
-    posts 
-    puts "#{posts.rank}. #{posts.upvote} Upvotes. #{posts.title} - submitted to #{posts.subreddit} by #{posts.user}"
+    frontpage << self.scraped_frontpage
+    
+    frontpage 
   end
   
   def self.scraped_frontpage
+    list = []
     page = Nokogiri::HTML(open("https://old.reddit.com/r/all/", 'User-Agent' => 'Nooby'))
     
     posts = page.css("div[data-author]")
@@ -27,9 +27,9 @@ class RedditNow::Posts
       new_post.url = op.css("p.title").css("a").first.attr("href")
       new_post.upvote = op.css(".dislikes").first.text
   
-      new_post
+      list << new_post
     end
-    
+    list
   end
   
   
