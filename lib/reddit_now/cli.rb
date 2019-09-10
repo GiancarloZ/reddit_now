@@ -22,8 +22,10 @@ class RedditNow::CLI
       when "exit"
         puts "See you next time!"
         break
-      #else
+      #when input.to_i > 0
         #system("open #{@newsletter.articles[input.to_i-1].url}") 
+      else
+        puts "Invalid Command!"
       end
     
     end
