@@ -15,10 +15,15 @@ class RedditNow::Posts
   def self.scraped_frontpage
     list = []
     page = Nokogiri::HTML(open("https://old.reddit.com/r/all/", 'User-Agent' => 'Nooby'))
-    posts = page.css("div#siteTable")
-    cards = posts.css("div[data-author]")
-    list << cards
-    list
+    posts = page.css("div[data-author]")
+    binding.pry
+    user = posts.css("p.tagline").css("a").first.text
+    subreddit = posts.css("p.tagline").css("a")[1].text
+    title = posts.css("p.title").css("a").first.text
+    rank = posts.css("span.rank").first.text
+    url = posts.css("p.title").css("a").first.attr("href")
+    upvote = posts.css(".dislikes").first.text
+    
   end
   
   
