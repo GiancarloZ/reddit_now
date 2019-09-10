@@ -28,7 +28,13 @@ class RedditNow::CLI
         puts "See you next time!"
         break
       elsif input.to_i > 0
-        system("open #{@posts[0][input.to_i-1].url}") 
+        #Launchy.open("#{RedditNow::Posts.now[0][input.to_i-1].url}") #tried to make it open url in browser but might not work becuase of IDE Browser 
+        #Launchy.open("#{@posts[0][input.to_i-1].url}")
+        #system("start #{@posts[0][input.to_i-1].url}")
+        the_post = @posts[0][input.to_i-1]
+        puts "You Chose:"
+        puts "#{the_post.rank}. #{the_post.upvote} Upvotes. #{the_post.title} - submitted to #{the_post.subreddit} by #{the_post.user}"
+        puts "Here is the link: #{the_post.url}"
       else
         puts "Invalid Command!"
       end
