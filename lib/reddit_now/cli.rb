@@ -34,7 +34,7 @@ class RedditNow::CLI
         the_post = @posts[0][input.to_i-1]
         puts "You Chose:"
         puts "#{the_post.rank}. #{the_post.upvote} Upvotes. #{the_post.title} - submitted to #{the_post.subreddit} by #{the_post.user}"
-        puts "Here is the link: www.reddit.com#{the_post.url}"
+        puts "Here is the link: #{the_post.url}"
       else
         puts "Invalid Command!"
       end

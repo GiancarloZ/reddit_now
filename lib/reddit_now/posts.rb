@@ -24,7 +24,7 @@ class RedditNow::Posts
       new_post.subreddit = op.css("p.tagline").css("a")[1].text
       new_post.title = op.css("p.title").css("a").first.text
       new_post.rank = op.css("span.rank").first.text
-      new_post.url = op.css("p.title").css("a").first.attr("href")
+      new_post.url = op.css("li a").first.attr("href")
       new_post.upvote = op.css(".dislikes").first.text
   
       list << new_post
