@@ -12,7 +12,7 @@ class RedditNow::CLI
     @posts.each do |posted, i| 
       puts "#{posted.rank}. #{posted.upvote}: #{posted.title}".colorize(:blue)
       puts "    -submitted to #{posted.subreddit} by #{posted.user}".colorize(:light_blue)
-      puts "------------------------------------------------".colorize(:green)
+      puts "------------------------------------------------".colorize(:yellow)
     end
     
   end
@@ -34,13 +34,13 @@ class RedditNow::CLI
         #Launchy.open("#{@posts[0][input.to_i-1].url}")
         #system("start #{@posts[0][input.to_i-1].url}")
         the_post = @posts[input.to_i-1]
-        puts "You Chose:"
-        puts "    #{the_post.rank}. #{the_post.upvote} upvotes: #{the_post.title}"
-        puts "    -submitted to #{the_post.subreddit} by #{the_post.user}"
-        puts "Here is the link:"
-        puts "    #{the_post.url}"
+        puts "You Chose:".colorize(:red)
+        puts "    #{the_post.rank}. #{the_post.upvote} upvotes: #{the_post.title}".colorize(:blue)
+        puts "    -submitted to #{the_post.subreddit} by #{the_post.user}".colorize(:light_blue)
+        puts "Here is the link:".colorize(:red)
+        puts "    #{the_post.url}".colorize(:green)
       else
-        puts "Invalid Command!"
+        puts "Invalid Command!".colorize(:magenta)
       end
     
     end
