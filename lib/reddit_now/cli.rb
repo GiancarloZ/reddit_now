@@ -10,8 +10,9 @@ class RedditNow::CLI
     @posts = RedditNow::Posts.now
     
     @posts.each do |posted, i| 
-      puts "#{posted.rank}. #{posted.upvote} upvotes: #{posted.title}"
-      puts "    -submitted to #{posted.subreddit} by #{posted.user}"
+      puts "#{posted.rank}. #{posted.upvote}: #{posted.title}".colorize(:blue)
+      puts "    -submitted to #{posted.subreddit} by #{posted.user}".colorize(:light_blue)
+      puts "------------------------------------------------".colorize(:green)
     end
     
   end
