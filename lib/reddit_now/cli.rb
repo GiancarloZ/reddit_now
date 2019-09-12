@@ -9,8 +9,9 @@ class RedditNow::CLI
   def list_posts
     @posts = RedditNow::Posts.now
     
-    @posts[0].each do |posted, i| 
-      puts "#{posted.rank}. #{posted.upvote} Upvotes. #{posted.title} - submitted to #{posted.subreddit} by #{posted.user}"
+    @posts.each do |posted, i| 
+      puts "#{posted.rank}. #{posted.upvote} upvotes: #{posted.title}"
+      puts "    -submitted to #{posted.subreddit} by #{posted.user}"
     end
     
   end
@@ -31,10 +32,12 @@ class RedditNow::CLI
         #Launchy.open("#{RedditNow::Posts.now[0][input.to_i-1].url}") #tried to make it open url in browser but might not work becuase of IDE Browser 
         #Launchy.open("#{@posts[0][input.to_i-1].url}")
         #system("start #{@posts[0][input.to_i-1].url}")
-        the_post = @posts[0][input.to_i-1]
+        the_post = @posts[input.to_i-1]
         puts "You Chose:"
-        puts "#{the_post.rank}. #{the_post.upvote} Upvotes. #{the_post.title} - submitted to #{the_post.subreddit} by #{the_post.user}"
-        puts "Here is the link: #{the_post.url}"
+        puts "    #{the_post.rank}. #{the_post.upvote} upvotes: #{the_post.title}"
+        puts "    -submitted to #{the_post.subreddit} by #{the_post.user}"
+        puts "Here is the link:"
+        puts "    #{the_post.url}"
       else
         puts "Invalid Command!"
       end

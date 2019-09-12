@@ -6,11 +6,7 @@ class RedditNow::Posts
   end
   
   def self.scraped
-    frontpage = [] 
-    
-    frontpage << self.scraped_frontpage
-    
-    frontpage 
+    frontpage = self.scraped_frontpage
   end
   
   def self.scraped_frontpage
