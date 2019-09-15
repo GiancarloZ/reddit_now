@@ -29,7 +29,7 @@ class RedditNow::CLI
       elsif input == "exit"
         puts "See you next time!"
         break
-      elsif input.to_i > 0
+      elsif input.to_i > 0 && input.to_i < 25
         #Launchy.open("#{RedditNow::Posts.now[0][input.to_i-1].url}") #tried to make it open url in browser but might not work becuase of IDE Browser 
         #Launchy.open("#{@posts[0][input.to_i-1].url}")
         #system("start #{@posts[0][input.to_i-1].url}")
